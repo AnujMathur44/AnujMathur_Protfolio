@@ -21,10 +21,10 @@ const EXPERIENCE = [
 ];
 const EDUCATION = [
   ['Ongoing','MCA, AI & Data Science','Poornima University, Jaipur'],
-  ['2023 - 2026','BCA, AI & Data Science','Poornima University, Jaipur'],
+  ['2026','BCA, AI & Data Science','Poornima University, Jaipur'],
   ['2023','Higher Secondary, Humanities (CBSE)','Kendriya Vidyalaya No 3, Jaipur']
 ];
-const CERTS = [['Google','Google Ads Measurement Certification','2026'],['TimesPro','Gen AI Unlocked','2026'],['NPTEL','Research Methodology','2025'],['NPTEL','Employment Communication','2025'],['NPTEL','Emotional Intelligence','2024'],['HackerRank','Python','2024'],['Great Learning','Python for Data Science','2024'],['Great Learning','Introduction to R','2024'],['HP Life','Data Science and Analytics','2024']];
+const CERTS = [['Google','Google Ads Measurement Certification','2026'],['Other','Gen AI Unlocked','2026'],['NPTEL','Research Methodology','2025'],['NPTEL','Employment Communication','2025'],['NPTEL','Emotional Intelligence','2024'],['HackerRank','Python','2024'],['Great Learning','Python for Data Science','2024'],['Great Learning','Introduction to R','2024'],['HP Life','Data Science and Analytics','2024']];
 
 /* ---------- Hero workflow ---------- */
 const NODES = [['⚡','Trigger',70,170],['⇄','Webhook',200,90],['✦','AI Agent',330,170],['▦','Data Processing',460,90],['➤','Output',580,170]];
@@ -112,21 +112,6 @@ const up = $('#up');
 addEventListener('scroll',()=>up.classList.toggle('show',scrollY>600),{passive:true});
 up.onclick = () => scrollTo({top:0,behavior:reduce?'auto':'smooth'});
 $('#yr').textContent = new Date().getFullYear();
-
-/* ---------- Contact form ---------- */
-/* A static site cannot send email. Create a free endpoint (Formspree, Web3Forms, Getform) and paste its URL here. */
-const FORM_ENDPOINT = '';
-const form = $('#form'), status = $('#status');
-const rules = {name:v=>v.trim().length>1||'Enter your name.',email:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)||'Enter a valid email.',message:v=>v.trim().length>=10||'Write at least 10 characters.'};
-form.addEventListener('submit',async e=>{
-  e.preventDefault(); let ok = true;
-  for (const [k,fn] of Object.entries(rules)){const el=form.elements[k],r=fn(el.value);el.nextElementSibling.textContent=r===true?'':r;if(r!==true)ok=false}
-  if(!ok) return;
-  if(!FORM_ENDPOINT){status.textContent='Form is not connected yet. Add a form service URL in script.js (see README).';return}
-  try{const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{Accept:'application/json'},body:new FormData(form)});
-    status.textContent=r.ok?'Message sent. Thank you!':'Could not send. Please try again.';if(r.ok)form.reset()}
-  catch{status.textContent='Network error. Please try again.'}
-});
 
 /* ---------- Polish: progress, active nav, typing, counters, marquee, tilt, cursor glow ---------- */
 const prog = $('#prog');
