@@ -157,3 +157,8 @@ h2{font-weight:700;letter-spacing:-.03em}
 .timeline li{transition:transform .3s}.timeline li:hover{transform:translateX(6px)}
 @media(max-width:860px){.skill .chips{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}.certs{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.skill .chip,.in .skill .chip{animation:none!important}}
+.plinks{display:flex;flex-wrap:wrap;gap:.6rem}
+.plinks .gh{padding:.4rem .9rem;border-radius:99px;border:1px solid var(--soft);background:#fff;text-decoration:none;font-weight:600;transition:.2s}
+.plinks a.gh:hover{background:var(--a);color:#fff;transform:translateY(-2px)}.plinks .off{color:var(--t2);border-style:dashed;font-weight:400}
+.connect{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:.8rem;padding:1.6rem;border-radius:18px;background:rgba(255,255,255,.7);border:1px dashed var(--soft)}
+.connect h3{font-size:1.5rem}.connect p{color:var(--t2);max-width:26rem}
